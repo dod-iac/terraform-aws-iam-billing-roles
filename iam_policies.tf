@@ -27,6 +27,10 @@ data "aws_iam_policy_document" "billing_full_access" {
     sid    = "Billing Full Access Permissions"
     effect = "Allow"
     actions = [
+      "aws-portal:*Billing",
+      "aws-portal:*Usage",
+      "aws-portal:*PaymentMethods",
+      "budgets:*Budget",
     ]
     resources = ["*"]
   }
@@ -37,6 +41,11 @@ data "aws_iam_policy_document" "billing_view_access" {
     sid    = "Billing View Access Permissions"
     effect = "Allow"
     actions = [
+      "aws-portal:ViewPaymentMethods",
+      "aws-portal:ViewAccount",
+      "aws-portal:ViewBilling",
+      "aws-portal:ViewUsage",
+      "budgets:ViewBudget",
     ]
     resources = ["*"]
   }
