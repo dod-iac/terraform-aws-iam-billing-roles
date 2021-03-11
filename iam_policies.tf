@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 
 data "aws_iam_policy_document" "billing_full_access" {
   statement {
-    sid    = "Billing Full Access Permissions"
+    sid    = "BillingFullAccessPermissions"
     effect = "Allow"
     actions = [
       "aws-portal:*Billing",
@@ -45,7 +45,7 @@ resource "aws_iam_policy" "billing_full_access" {
 
 data "aws_iam_policy_document" "billing_view_access" {
   statement {
-    sid    = "Billing View Access Permissions"
+    sid    = "BillingViewAccessPermissions"
     effect = "Allow"
     actions = [
       "aws-portal:ViewPaymentMethods",
