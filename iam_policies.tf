@@ -36,6 +36,13 @@ data "aws_iam_policy_document" "billing_full_access" {
   }
 }
 
+resource "aws_iam_policy" "billing_full_access" {
+  name        = "billing-full-access"
+  path        = "/"
+  description = "Allows access to the 'billing-full-access' actions and resources."
+  policy      = data.aws_iam_policy_document.billing_full_access.json
+}
+
 data "aws_iam_policy_document" "billing_view_access" {
   statement {
     sid    = "Billing View Access Permissions"
@@ -49,6 +56,13 @@ data "aws_iam_policy_document" "billing_view_access" {
     ]
     resources = ["*"]
   }
+}
+
+resource "aws_iam_policy" "billing_view_access" {
+  name        = "billing-view-access"
+  path        = "/"
+  description = "Allows access to the 'billing-view-access' actions and resources."
+  policy      = data.aws_iam_policy_document.billing_view_access.json
 }
 
 ############################
