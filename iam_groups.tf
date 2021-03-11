@@ -16,7 +16,7 @@ resource "aws_iam_group_policy_attachment" "billing_full_access_assume_role_poli
 // Using a data resource validates that the users exist before applying
 data "aws_iam_user" "billing_full_access_users" {
   count     = length(var.billing_full_access_users)
-  user_name = local.billing_full_access_users[count.index]
+  user_name = var.billing_full_access_users[count.index]
 }
 
 resource "aws_iam_group_membership" "billing_full_access_users" {
@@ -44,7 +44,7 @@ resource "aws_iam_group_policy_attachment" "billing_view_access_assume_role_poli
 // Using a data resource validates that the users exist before applying
 data "aws_iam_user" "billing_view_access_users" {
   count     = length(var.billing_view_access_users)
-  user_name = local.billing_view_access_users[count.index]
+  user_name = var.billing_view_access_users[count.index]
 }
 
 resource "aws_iam_group_membership" "billing_view_access_users" {
