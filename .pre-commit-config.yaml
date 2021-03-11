@@ -3,11 +3,15 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.4.0
     hooks:
+      - id: check-json
       - id: check-merge-conflict
       - id: check-yaml
       - id: detect-private-key
+      - id: pretty-format-json
+        args:
+          - --autofix
       - id: no-commit-to-branch
-      - id: requirements-txt-fixer
+        args: [--branch, main, --branch, master, --pattern, '\d\.\d\.\d']
       - id: trailing-whitespace
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
